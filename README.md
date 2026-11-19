@@ -15,4 +15,12 @@ The root `index.html` redirects visitors to the landing page. Destination photos
 
 ## Run locally
 
-Open `index.html` in a browser, or serve this folder with any static web server.
+The registration and booking forms use `app.js` and the `api.php` backend. Run the website with PHP 8.1+ and PDO SQLite enabled:
+
+```sh
+php -S 127.0.0.1:8000
+```
+
+Then open `http://127.0.0.1:8000/`. The PHP process must be able to write to a private data directory outside the web root. Set `DETORA_DATA_DIR` to choose that directory; otherwise the backend uses `../detora-data`. Passwords are stored as password hashes, and booking and registration requests are stored in SQLite.
+
+GitHub Pages only serves static files and does not execute PHP. To use the forms online, deploy this project to a PHP-capable web host and configure a writable private data directory.

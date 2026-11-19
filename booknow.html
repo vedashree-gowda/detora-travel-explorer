@@ -151,13 +151,13 @@ button:hover {
     
     <p>Your Journey Begins Here!</p>
 
-    <form>
+    <form id="booking-form" data-api="api.php">
 
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your name">
+        <label for="booking-name">Full Name</label>
+        <input id="booking-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Enter your name" required>
 
-        <label>Email Address</label>
-        <input type="email" placeholder="Enter your email">
+        <label for="booking-email">Email Address</label>
+        <input id="booking-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="Enter your email" required>
 
          
 
@@ -267,20 +267,21 @@ button:hover {
 </select>
 
                <label>Travel Date</label>
-        <input type="date">
+        <input id="travel-date" name="travel_date" type="date" required>
 
-        <label>Number of Travellers</label>
-        <input type="number" min="1" placeholder="Enter number">
+        <label for="travellers">Number of Travellers</label>
+        <input id="travellers" name="travellers" type="number" min="1" max="30" placeholder="Enter number" required>
 
-        <label>Choose Package</label>
-        <select>
-            <option>Select Package</option>
+        <label for="package">Choose Package</label>
+        <select id="package" name="package" required>
+            <option value="">Select Package</option>
             <option>Budget Trip</option>
             <option>Standard Trip</option>
             <option>Luxury Trip</option>
         </select>
 
         <button type="submit">Book My Trip</button>
+        <p id="booking-status" role="status" aria-live="polite"></p>
 
     </form>
 
@@ -330,5 +331,6 @@ button:hover {
 
 </div>
 
+<script src="app.js" defer></script>
 </body>
 </html>

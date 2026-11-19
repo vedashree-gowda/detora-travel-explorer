@@ -132,25 +132,27 @@
 
         <h2>Create Your Account</h2>
 
-        <form>
+        <form id="registration-form" data-api="api.php">
 
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name">
+            <label for="registration-name">Full Name</label>
+            <input id="registration-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Enter your name" required>
 
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email">
+            <label for="registration-email">Email Address</label>
+            <input id="registration-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="Enter your email" required>
 
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+91 Enter phone number"
+            <label for="registration-phone">Phone Number</label>
+            <input id="registration-phone" type="tel" placeholder="+91 Enter phone number"
             name="phone"
+            autocomplete="tel-national"
             maxlength="10"
             pattern="[0-9]{10}"
             required>
             
-            <label>Password</label>
-            <input type="password" placeholder="Create a password">
+            <label for="registration-password">Password</label>
+            <input id="registration-password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Create a password" required>
 
             <button type="submit">Register to Detora</button>
+            <p id="registration-status" role="status" aria-live="polite"></p>
 
         </form>
 
@@ -160,5 +162,6 @@
 
     </div>
 
+    <script src="app.js" defer></script>
 </body>
 </html>
