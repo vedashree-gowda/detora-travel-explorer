@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detora Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://images.unsplash.com/photo-1448375240586-882707db888b");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .back-btn {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+
+    color: white;
+    background: #12a9bd;
+
+    padding: 12px 22px;
+    border-radius: 25px;
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #087e91;
+    transform: scale(1.05);
+}
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 15px;
+        }
+
+        .header h1 {
+            color: #36b5b0;
+            font-size: 35px;
+        }
+
+        .header p {
+            font-size: 17px;
+        }
+
+        h2 {
+            color: #36b5b0;
+            text-align: center;
+        }
+
+        label {
+            color: white;
+            display: block;
+            margin-top: 18px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #f0f5f7;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 25px;
+            background-color: #087b8c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #075d69;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 85%;
+                margin: 20px auto;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Welcome to Detora!</h1>
+       
+        </div>
+
+
+        <a href="home.html" class="back-btn">← Back to Home</a>
+
+        <h2>Create Your Account</h2>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name">
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email">
+
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 Enter phone number"
+            name="phone"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required>
+            
+            <label>Password</label>
+            <input type="password" placeholder="Create a password">
+
+            <button type="submit">Register to Detora</button>
+
+        </form>
+
+        <div class="footer">
+            <p>Already have an account? Sign in</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

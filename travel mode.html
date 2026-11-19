@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detora - Travel Mode</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf5f5;
+            text-align: center;
+            padding: 30px;
+        }
+
+        button {
+    background-color: #164e42;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+        h1 {
+            color: #087e8b;
+        }
+
+        .container {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        select, button {
+            width: 90%;
+            padding: 12px;
+            margin: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #087e8b;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #055c65;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #087e8b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.location.href='home.html'">
+    ← Back to Home
+</button>
+
+    <h1>DETORA</h1>
+    <h2>Choose Your Destination</h2>
+
+    <div class="container">
+
+        <label>Select Category</label>
+        <select id="category" onchange="showDestinations()">
+            <option value="">Choose Category</option>
+            <option value="local">Local - Karnataka</option>
+            <option value="national">National - India</option>
+            <option value="international">International</option>
+        </select>
+
+        <br>
+
+        <label>Select Destination</label>
+        <select id="destination">
+            <option value="">Choose Destination</option>
+        </select>
+
+        <br>
+
+        <button onclick="showTravelMode()">Show Travel Mode</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        // Destination lists
+
+        let local = [
+            "Chikmagalur", "Hampi", "Badami", "Dandeli",
+            "Nagarhole National Park", "Bandipur National Park",
+            "Mangaluru", "Shivamogga", "Bengaluru", "Mysuru",
+            "Gokarna", "Jog Falls", "Aihole", "Pattadakal"
+        ];
+
+        let national = [
+            "Agra - Taj Mahal", "Leh-Ladakh", "Srinagar",
+            "Manali", "Shimla", "Mumbai", "Munnar",
+            "Goa", "Jaipur", "Allahabad", 
+            "Delhi", "Varanasi", "Amritsar", "Rishikesh", "Rameswaram",
+            "Kolkata", "Hyderabad", "Chennai", "Kochi", "Pune",
+            "Darjeeling", "Ooty", "Kodaikanal", "Udaipur", "Jaisalmer",
+            "Khajuraho", "Puri", "Andaman Islands", "Lakshadweep",
+            "Bangalore", "Hampi", "Mysuru", "Aurangabad", "Thanjavur",
+            "Bhubaneswar", "Gangtok"
+        ];
+
+        let international = [
+            "London","Paris", "New York", "Tokyo", "Seoul", "Dubai", "Singapore",
+         "Miami","Niagara Falls", "Chongquing {China}", "Maldivs", "Switzerland",
+         "Rome", "Barcelona", "Amsterdam", "Athens", "Istanbul",
+         "Bali", "Bangkok", "Phuket", "Hong Kong", "Macau",
+         "Sydney", "Melbourne", "Cape Town", "Victoria Falls",
+         "Cairo", "Petra", "Santorini", "Venice", "Vienna",
+         "Prague", "Budapest", "Berlin", "Reykjavik", "Toronto",
+         "Los Angeles"
+    ];
+       
+        function showDestinations() {
+
+            let category = document.getElementById("category").value;
+            let destination = document.getElementById("destination");
+
+            destination.innerHTML = '<option value="">Choose Destination</option>';
+
+            let places = [];
+
+            if (category == "local") {
+                places = local;
+            }
+            else if (category == "national") {
+                places = national;
+            }
+            else if (category == "international") {
+                places = international;
+            }
+
+            for (let i = 0; i < places.length; i++) {
+                let option = document.createElement("option");
+                option.text = places[i];
+                option.value = places[i];
+                destination.add(option);
+            }
+
+            document.getElementById("result").innerHTML = "";
+        }
+
+        // Show recommended travel modes
+
+        function showTravelMode() {
+
+            let category = document.getElementById("category").value;
+            let place = document.getElementById("destination").value;
+            let result = document.getElementById("result");
+
+            if (category == "" || place == "") {
+                result.innerHTML = "Please select a category and destination.";
+            }
+
+            else if (category == "local") {
+                result.innerHTML =
+                    "<h3>Recommended Travel Modes</h3>" +
+                    "Bus<br>Car<br>Train";
+            }
+
+            else if (category == "national") {
+                result.innerHTML =
+                    "<h3>Recommended Travel Modes</h3>" +
+                    "Train<br>Flight<br>";
+            }
+
+            else if (category == "international") {
+                result.innerHTML =
+                    "<h3>Recommended Travel Modes</h3>" +
+                    "Flight<br>Train<br>Cruise";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

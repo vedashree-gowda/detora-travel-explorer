@@ -1,0 +1,216 @@
+/* Remove default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Main background */
+.hero {
+    min-height: 100vh;
+    width: 100%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.20)
+        ),
+        url("https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1920&q=85")
+        no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    padding: 35px 5%;
+    color: white;
+}
+    color: rgb(0, 0, 0);
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border: 2px solid white;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    align-items:center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #9beaff;
+}
+
+.book-btn {
+   
+    display: flex; 
+    align-items:center;     
+    margin-left: auto;   
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #689c75;
+}
+
+/* Main heading */
+.hero-content {
+    margin-top: 100px;
+    margin-left: 8%;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 75px;
+    line-height: 1.15;
+    color: rgb(176, 220, 238);
+}
+
+.hero-content h1 span {
+    color: #9beaff;
+}
+
+.hero-content p {
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgb(255, 177, 216);
+}
+
+/* Features */
+.features {
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.features div {
+    padding: 12px 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+}
+
+/* Booking bar */
+.booking-bar {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 85%;
+    background: white;
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 20px;
+    border-radius: 50px;
+    gap: 12px;
+}
+
+.booking-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.booking-item label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.booking-item select,
+.booking-item input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #555;
+    font-size: 13px;
+    width: 100%;
+}
+
+.booking-bar button {
+    background: #80ddf4;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.booking-bar button:hover {
+    background: #40c7eb;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-content {
+        margin: 65px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .features {
+        position: static;
+        margin: 30px 0;
+    }
+
+    .booking-bar {
+        position: static;
+        transform: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 20px;
+        margin-top: 35px;
+    }
+
+    .booking-item {
+        padding: 10px;
+    }
+}

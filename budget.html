@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detora Budget Planner</title>
+
+    <style>
+
+            button {
+    background-color: #164e42;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+        body {
+            font-family: Arial;
+            background-color: #eaf3ef;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #164e42;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #164e42;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #164e42;
+            color: white;
+            padding: 12px;
+            border: none;
+            margin-top: 20px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #287c62;
+        }
+
+        #result {
+            background-color: #eaf3ef;
+            padding: 15px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.location.href='home.html'">
+    ← Back to Home
+</button>
+
+
+<header>
+    <h1>DETORA</h1>
+    <h3>Travel Budget Planner</h3>
+</header>
+
+<div class="container">
+
+    <h2>Plan Your Travel Budget</h2>
+
+    <label>Travel Category</label>
+    <select id="category" onchange="showPlaces()">
+        <option value="">Select Category</option>
+        <option value="Local">Local</option>
+        <option value="National">National</option>
+        <option value="International">International</option>
+    </select>
+
+    <label>Select Destination</label>
+    <select id="place">
+        <option value="">Select Destination</option>
+    </select>
+
+    <label>Number of Travellers</label>
+    <input type="number" id="people" min="1" placeholder="Enter travellers">
+
+    <label>Number of Days</label>
+    <input type="number" id="days" min="1" placeholder="Enter days">
+
+    <label>Number of Nights</label>
+    <input type="number" id="nights" min="0" placeholder="Enter nights">
+
+    <h2>Travel Expenses</h2>
+
+    <label>Available Budget (₹)</label>
+    <input type="number" id="budget" min="0" placeholder="Your total budget">
+
+    <label>Accommodation Cost per Night (₹)</label>
+    <input type="number" id="hotel" min="0" placeholder="Hotel or stay cost">
+
+    <label>Food Cost per Person per Day (₹)</label>
+    <input type="number" id="food" min="0" placeholder="Food expenses">
+
+    <label>Transportation Cost (₹)</label>
+    <input type="number" id="travel" min="0" placeholder="Bus, train, car or flight">
+
+    <label>Activities and Sightseeing per Person (₹)</label>
+    <input type="number" id="activities" min="0" placeholder="Visiting places">
+
+    <label>Other Expenses (₹)</label>
+    <input type="number" id="other" min="0" placeholder="Shopping and extra expenses">
+
+    <button onclick="calculateBudget()">Calculate Budget</button>
+
+    <div id="result">
+        <h2>Budget Summary</h2>
+
+        <p id="destination"></p>
+        <p id="total"></p>
+        <p id="personCost"></p>
+        <p id="remaining"></p>
+        <h3 id="message"></h3>
+    </div>
+
+</div>
+
+<script>
+
+// Destination Selection
+
+function showPlaces() {
+
+    var category = document.getElementById("category").value;
+    var place = document.getElementById("place");
+
+    place.innerHTML = "";
+
+    var places = [];
+
+    if (category == "Local") {
+        places = ["Chikmagalur", "Hampi", "Badami", "Dandeli",
+            "Nagarhole National Park", "Bandipur National Park",
+            "Mangaluru", "Shivamogga", "Bengaluru", "Mysuru",
+            "Gokarna", "Jog Falls", "Aihole", "Pattadakal"];
+    }
+
+    else if (category == "National") {
+        places = ["Agra - Taj Mahal", "Leh-Ladakh", "Srinagar",
+            "Manali", "Shimla", "Mumbai", "Munnar",
+            "Goa", "Jaipur", "Allahabad", 
+            "Delhi", "Varanasi", "Amritsar", "Rishikesh", "Rameswaram",
+            "Kolkata", "Hyderabad", "Chennai", "Kochi", "Pune",
+            "Darjeeling", "Ooty", "Kodaikanal", "Udaipur", "Jaisalmer",
+            "Khajuraho", "Puri", "Andaman Islands", "Lakshadweep",
+            "Bangalore", "Hampi", "Mysuru", "Aurangabad", "Thanjavur",
+            "Bhubaneswar", "Gangtok"]
+    }
+
+    else if (category == "International") {
+        places = ["London","Paris", "New York", "Tokyo", "Seoul", "Dubai", "Singapore",
+         "Miami","Niagara Falls", "Chongquing {China}", "Maldivs", "Switzerland",
+         "Rome", "Barcelona", "Amsterdam", "Athens", "Istanbul",
+         "Bali", "Bangkok", "Phuket", "Hong Kong", "Macau",
+         "Sydney", "Melbourne", "Cape Town", "Victoria Falls",
+         "Cairo", "Petra", "Santorini", "Venice", "Vienna",
+         "Prague", "Budapest", "Berlin", "Reykjavik", "Toronto",
+         "Los Angeles"];
+    }
+
+    for (var i = 0; i < places.length; i++) {
+        var option = document.createElement("option");
+        option.text = places[i];
+        option.value = places[i];
+        place.add(option);
+    }
+}
+
+
+// Budget Calculation
+
+function calculateBudget() {
+
+    var people = Number(document.getElementById("people").value);
+    var days = Number(document.getElementById("days").value);
+    var nights = Number(document.getElementById("nights").value);
+
+    var budget = Number(document.getElementById("budget").value);
+    var hotel = Number(document.getElementById("hotel").value);
+    var food = Number(document.getElementById("food").value);
+    var travel = Number(document.getElementById("travel").value);
+    var activities = Number(document.getElementById("activities").value);
+    var other = Number(document.getElementById("other").value);
+
+    if (people <= 0 || days <= 0 || nights < 0 ||
+        nights > days || budget <= 0 ||
+        document.getElementById("category").value == "" ||
+        document.getElementById("place").value == "") {
+
+        alert("Please enter valid travel details and budget.");
+        return;
+    }
+
+    if (hotel < 0 || food < 0 || travel < 0 ||
+        activities < 0 || other < 0) {
+
+        alert("Expenses cannot be negative.");
+        return;
+    }
+
+    var hotelCost = hotel * nights;
+
+    var foodCost = food * people * days;
+
+    var travelCost = travel;
+
+    var activityCost = activities * people;
+
+    var total = hotelCost + foodCost + travelCost +
+                activityCost + other;
+
+    var remaining = budget - total;
+
+    var perPerson = total / people;
+
+    document.getElementById("destination").innerHTML =
+        "Destination: " + document.getElementById("place").value;
+
+    document.getElementById("total").innerHTML =
+        "Total Expenses: ₹" + total;
+
+    document.getElementById("personCost").innerHTML =
+        "Cost Per Person: ₹" + perPerson.toFixed(2);
+
+    document.getElementById("remaining").innerHTML =
+        "Remaining Budget: ₹" + remaining;
+
+    if (remaining > 0) {
+        document.getElementById("message").innerHTML =
+            "Great! Your trip is within your budget.";
+    }
+
+    else if (remaining == 0) {
+        document.getElementById("message").innerHTML =
+            "Your budget is exactly equal to your expenses.";
+    }
+
+    else {
+        document.getElementById("message").innerHTML =
+            "Your budget is insufficient. Reduce your expenses.";
+    }
+
+    document.getElementById("result").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>

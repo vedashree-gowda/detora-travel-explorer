@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DETORA - Book Now</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
+
+button {
+    background-color: #164e42;
+    color: rgb(158, 135, 135);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav {
+    background: #123d3a;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    color: white;
+    font-size: 28px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.container {
+    width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #cccccc;
+}
+
+h1 {
+    text-align: center;
+    color: #123d3a;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 22px;
+    background: #123d3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #26766c;
+}
+
+.travel-partners {
+    padding: 40px;
+    text-align: center;
+}
+
+.partner-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.partner-card {
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f1f5f9;
+}
+
+.partner-card a {
+    display: inline-block;
+    background: #087e8b;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+</style>
+</head>
+
+<body>
+
+   <button onclick="window.location.href='home.html'">
+    ← Back to Home
+</button> 
+
+<nav>
+    <h2>DETORA</h2>
+
+   </nav>
+
+<div class="container">
+
+    <h1>Book Your Trip</h1>
+
+    
+    <p>Your Journey Begins Here!</p>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email">
+
+         
+
+                   
+<label for="destination">Choose Destination:</label>
+
+<select name="destination" id="destination">
+
+    <option value="">Select Destination</option>
+
+    <optgroup label="Local">
+        <option>Bangalore</option>
+        <option>Mysore</option>
+        <option>Coorg</option>
+        <option>Hampi</option>
+        <option>Chikmagalur</option>
+        <option>Gokarna</option>
+        <option>Badami</option>
+        <option>Dandeli</option>
+        <option>Nagarhole National Park</option>
+        <option>Bandipur National Park</option>
+        <option>Mangaluru</option>
+        <option>Shivamogga</option>
+        <option>Bengaluru</option>
+        <option>Mysuru</option>
+        <option>Jog Falls</option>
+        <option>Aihole</option>
+        <option>Pattadakal</option>
+
+    </optgroup>
+
+    <optgroup label="National">
+        <option>Goa</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Manali</option>
+        <option>Leh-ladakh</option>
+        <option>Varanasi</option>
+        <option>Shimla</option>    
+        <option>Agra-Taj Mahal</option>
+        <option>Allahabad(Prayagraj)</option>
+        <option>Shimla</option>
+        <option>Munnar</option>
+        <option>Jaipur</option>
+        <option>Amritsar</option>
+        <option>Rishikesh</option>
+        <option>Rameswaram</option>
+        <option>Kolkata</option>
+        <option>Hyderabad</option>
+        <option>Chennai</option>
+        <option>Kochi</option>
+        <option>Pune</option>
+        <option>Darjeeling</option>
+        <option>Ooty</option>
+        <option>Kodaikanal</option>
+        <option>Udaipur</option>
+        <option>Jaisalmer</option>
+        <option>Khajuraho</option>
+        <option>Puri</option>
+        <option>Andaman Islands</option>
+        <option>Lakshadweep</option>
+        <option>Aurangabad</option>
+        <option>Thanjavur</option>
+        <option>Bhubaneswar</option>
+        <option>Gangtok</option>
+</optgroup> 
+
+    <optgroup label="International">
+        <option>Paris</option>
+        <option>London</option>
+        <option>Switzerland</option>
+        <option>Dubai</option>
+        <option>Maldives</option>
+        <option>Niagara Falls</option>
+        <option>Chongquing {China}</option>
+        <option>New York</option>
+        <option>Tokyo</option>
+        <option>Seoul</option>
+        <option>Singapore</option>
+        <option>Rome</option>
+        <option>Barcelona</option>
+        <option>Amsterdam</option>
+        <option>Athens</option>
+        <option>Istanbul</option>
+        <option>Bali</option>
+        <option>Bangkok</option>
+        <option>Phuket</option>
+        <option>Hong Kong</option>
+        <option>Macau</option>
+        <option>Sydney</option>
+        <option>Melbourne</option>
+        <option>Cape Town</option>
+        <option>Victoria Falls</option>
+        <option>Cairo</option>
+        <option>Petra</option>
+        <option>Santorini</option>
+        <option>Venice</option>
+        <option>Vienna</option>
+        <option>Prague</option>
+        <option>Budapest</option>
+        <option>Berlin</option>
+        <option>Reykjavik</option>
+        <option>Toronto</option>
+        <option>Los Angeles</option>
+    </optgroup>
+
+</select>
+
+               <label>Travel Date</label>
+        <input type="date">
+
+        <label>Number of Travellers</label>
+        <input type="number" min="1" placeholder="Enter number">
+
+        <label>Choose Package</label>
+        <select>
+            <option>Select Package</option>
+            <option>Budget Trip</option>
+            <option>Standard Trip</option>
+            <option>Luxury Trip</option>
+        </select>
+
+        <button type="submit">Book My Trip</button>
+
+    </form>
+
+    <section class="travel-partners">
+    <h2>Explore More & Book Your Trip</h2>
+    <p>Plan your journey with our travel partners.</p>
+
+    <div class="partner-container">
+
+        <div class="partner-card">
+            <h3>Wego</h3>
+            <p>Compare flights and hotels.</p>
+            <a href="https://www.wego.co.in/"
+               target="_blank">Explore Wego</a>
+        </div>
+
+        <div class="partner-card">
+            <h3>MakeMyTrip</h3>
+            <p>Book flights and hotels.</p>
+            <a href="https://www.makemytrip.com/"
+               target="_blank">Book Now</a>
+        </div>
+
+        <div class="partner-card">
+            <h3>Goibibo</h3>
+            <p>Explore travel deals.</p>
+            <a href="https://www.goibibo.com/"
+               target="_blank">Explore Goibibo</a>
+        </div>
+
+        <div class="partner-card">
+            <h3>Booking.com</h3>
+            <p>Find your accommodation.</p>
+            <a href="https://www.booking.com/"
+               target="_blank">Find Hotels</a>
+        </div>
+
+        <div class="partner-card">
+            <h3>redBus</h3>
+            <p>Find bus tickets.</p>
+            <a href="https://www.redbus.in/"
+               target="_blank">Book Bus</a>
+        </div>
+
+    </div>
+</section>
+
+</div>
+
+</body>
+</html>
